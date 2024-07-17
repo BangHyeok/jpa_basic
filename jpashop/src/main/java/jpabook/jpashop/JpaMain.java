@@ -1,9 +1,11 @@
-package hellojpa;
+package jpabook.jpashop;
 
 import jakarta.persistence.*;
+import jpabook.jpashop.domain.Book;
+import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderItem;
 
 import javax.lang.model.SourceVersion;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -17,14 +19,12 @@ public class JpaMain {
         tx.begin();
 
         try {
-           Member member = new Member();
-           member.setUsername("user1");
-           member.setCreatedBy("bang");
-           member.setCreatedDate(LocalDateTime.now());
 
-           em.persist(member);
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
 
-
+            em.persist(book);
 
             tx.commit();
         } catch (Exception e) {
